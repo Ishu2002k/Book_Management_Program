@@ -1,12 +1,12 @@
 #include <iostream>
 #include <conio.h>
-#include <iomanip> //input-output manipulator
+#include <iomanip> 
 #include <stdlib.h>
 #include <cstring>
 #include <stdio.h>
 #include <fstream>
-using namespace std;
 #include <windows.h>  
+using namespace std;
 
 // Function is used to set the cursor position at the specified coordinates
 void gotoxy(int x, int y){
@@ -67,6 +67,7 @@ class student{
     int token;     // Total book of student
 public:
 
+// Enter the data of the new Student
     void createStudent(){
         system("cls");
         cout << "\nNEW STUDENT ENTRY...\n";
@@ -77,19 +78,21 @@ public:
         gets(studentName);
         token = 0;
         studentBookNo[0] = '\0';
-        cout << "\n\nStudent Record Created...";
+        cout << "\n\nStudent Record Created... 👌👌👌";
     }
 
+// Show the data of the student
     void showStudent(){
-        cout << "\nAdmission Number : " << admissionNo;
-        cout << "\nStudent Name : ";
+        cout << "\nAdmission Number: " << admissionNo;
+        cout << "\nStudent Name: ";
         puts(studentName);
-        cout << "\nNo of Book Issued : " << token;
+        cout << "\nNo of Book Issued: " << token;
         if (token == 1){
             cout << "\nBook Number " << studentBookNo;
         }
     }
 
+// Modify the name of the student
     void modifyStudent(){
         cout << "\nAdmission No. " << admissionNo;
         cout << "\nModify Student Name : ";
@@ -120,6 +123,7 @@ public:
         strcpy(studentBookNo, t);
     }
 
+// Shows all the details
     void report(){
         cout << "\t" << admissionNo << setw(20) << studentName << setw(10) << token << endl;
     }
@@ -129,6 +133,7 @@ fstream fp, fp1; // object
 book bk;         // book class object
 student st;      // student class object
 
+// Adding book to the library
 void writeBook(){
     char ch;
     fp.open("book.txt", ios::out | ios::app); // write and append data
@@ -142,6 +147,7 @@ void writeBook(){
     fp.close();
 }
 
+// New student admission
 void writeStudent(){
     char ch;
     fp.open("student.txt", ios::out | ios::app); // write and append data
@@ -155,6 +161,7 @@ void writeStudent(){
     fp.close();
 }
 
+// display the book data
 void displaySpecificBook(char n[]){
     cout << "\nBOOK DETAILS\n";
     int flag = 0;                 // book not found
@@ -172,6 +179,7 @@ void displaySpecificBook(char n[]){
     getch();
 }
 
+// display student details
 void displaySpecificStudent(char n[]){
     cout << "\nSTUDENT DETAILS\n";
     int flag = 0;                    // student not found
@@ -189,6 +197,7 @@ void displaySpecificStudent(char n[]){
     getch();
 }
 
+// modify the book details in the library
 void modifyBook(){
     char n[6];
     int found = 0; // seach book of given data
@@ -215,6 +224,8 @@ void modifyBook(){
     }
     getch(); // press key to get out
 }
+
+// modify the student details
 void modifyStudent(){
     char n[6];
     int found = 0; // seach book of given data
@@ -242,6 +253,7 @@ void modifyStudent(){
     getch(); // press key to get out
 }
 
+// delete the student data if he/she left
 void deleteStudent(){
     char n[6];
     int flag = 0;
@@ -270,6 +282,7 @@ void deleteStudent(){
     getch();
 }
 
+// delete the book details if that book is lost or stolen by someone
 void deleteBook(){
     char n[6]; // book no.
     int flag = 0;
@@ -298,6 +311,7 @@ void deleteBook(){
     getch();
 }
 
+// displays all the student who are in the library
 void displayAllStudents(){
     system("cls");
     fp.open("student.txt", ios::in); // read mode
@@ -317,6 +331,7 @@ void displayAllStudents(){
     getch();
 }
 
+// displays all the book present in the library
 void displayAllBooks(){
     system("cls");
     fp.open("book.txt", ios::in); // read mode
@@ -336,6 +351,7 @@ void displayAllBooks(){
     getch();
 }
 
+// Function to issue book from the library
 void bookIssue(){
     char sn[6], bn[6];
     int found = 0, flag = 0;
@@ -379,6 +395,7 @@ void bookIssue(){
     fp1.close();
 }
 
+// FUnction to deposit book in the library
 void bookDeposit(){
     char sn[6], bn[6];
     int found = 0, flag = 0, day, fine;
@@ -438,6 +455,7 @@ void start(){
     getch();
 }
 
+// Admission menu of both student and Book
 void adminMenu(){
     system("cls");
     string s;
@@ -505,6 +523,7 @@ void adminMenu(){
     }
     adminMenu();
 }
+
 signed main(){
     char ch;
     system("cls");
